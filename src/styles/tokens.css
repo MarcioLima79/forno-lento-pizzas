@@ -1,0 +1,18 @@
+:root {
+  --color-charcoal: #211a14;
+  --color-wheat: #e7b34a;
+  --color-olive: #5d6b47;
+  --color-flour: #f6efe1;
+  --color-brick: #96402c;
+  --color-brick-dark: #7d3423;
+  --color-text-secondary: #4a4038;
+  --color-border: rgb(33 26 20 / 14%);
+
+  --font-heading: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", Arial, sans-serif;
+
+  --container-width: 1120px;
+  --container-padding: 2rem;
+
+  --spacing-section: 6rem;
+}
