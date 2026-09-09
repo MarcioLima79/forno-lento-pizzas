@@ -1,7 +1,9 @@
+import Header from "./sections/Header/Header"
+
 function App() {
   return (
     <main>
-      <h1>Forno Lento Pizzas Artesanais</h1>
+      <Header />
     </main>
   )
 }
