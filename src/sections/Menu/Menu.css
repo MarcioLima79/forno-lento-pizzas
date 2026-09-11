@@ -1,0 +1,77 @@
+.menu {
+  padding: 96px 32px;
+}
+
+.menu-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.menu-head h2 {
+  font-size: 36px;
+  max-width: 14ch;
+}
+
+.menu-head a {
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--color-charcoal);
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+
+.sabores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.sabor {
+  padding: 32px 26px;
+  border-right: 2px solid var(--color-border);
+}
+
+.sabor:last-child {
+  border-right: none;
+}
+
+.sabor .tag {
+  font-size: 14px;
+  color: var(--color-olive);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.sabor h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.sabor p {
+  font-size: 14.5px;
+  color: #5a5045;
+  margin-bottom: 16px;
+}
+
+.sabor .preco {
+  font-family: "Fraunces", serif;
+  font-size: 17px;
+  color: var(--color-brick);
+}
+
+@media (max-width: 860px) {
+  .sabores {
+    grid-template-columns: 1fr;
+  }
+
+  .sabor {
+    border-right: none;
+    border-bottom: 2px solid var(--color-border);
+    padding: 24px;
+    margin-bottom: 0;
+  }
+}
