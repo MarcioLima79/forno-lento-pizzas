@@ -1,3 +1,4 @@
+import { MoveRight } from "lucide-react";
 import "./Menu.css";
 
 function Menu() {
@@ -6,7 +7,9 @@ function Menu() {
       <div className="wrap">
         <div className="menu-head">
           <h2>Sabores da semana</h2>
-          <a href="#cardapio">Ver cardápio completo</a>
+          <a href="#cardapio">
+            Ver cardápio completo <MoveRight />
+          </a>
         </div>
         <div className="sabores">
           <div className="sabor">
