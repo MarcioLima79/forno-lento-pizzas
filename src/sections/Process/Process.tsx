@@ -2,8 +2,8 @@ import "./Process.css";
 
 function Process() {
   return (
-    <section className="process" id="process">
-      <div className="wrap">
+    <section className="process" id="processo">
+      <div className="container">
         <div className="head">
           <h2>Da nossa cozinha para seu forno</h2>
           <p>

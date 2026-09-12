@@ -1,41 +1,55 @@
+import { MoveRight } from "lucide-react";
+import { pizzas } from "../../data/pizzas";
 import "./Menu.css";
+
+const currencyFormatter = new Intl.NumberFormat("pt-BR", {
+  style: "currency",
+  currency: "BRL",
+});
 
 function Menu() {
   return (
-    <section className="menu" id="menu">
-      <div className="wrap">
-        <div className="menu-head">
-          <h2>Sabores da semana</h2>
-          <a href="#cardapio">Ver cardápio completo</a>
+    <section className="menu" id="cardapio">
+      <div className="container">
+        <div className="menu__head">
+          <div>
+            <p className="menu__eyebrow">Escolha o seu tamanho</p>
+            <h2>Sabores artesanais</h2>
+          </div>
+
+          <a className="menu__order-link" href="#pedir">
+            Ver como pedir
+            <MoveRight aria-hidden="true" />
+          </a>
         </div>
-        <div className="sabores">
-          <div className="sabor">
-            <div className="tag">Clássica</div>
-            <h3>Muçarela de búfula</h3>
-            <p>
-              Molho de tomate italiano, muçarela de búfala e manjericão fresco
-              por cima, na saída do forno.
-            </p>
-            <div className="preco">R$ 42,00</div>
-          </div>
-          <div className="sabor">
-            <div className="tag">Assinatura</div>
-            <h3>Linguiça artesanal e cebola</h3>
-            <p>
-              Linguiça defumada da região, cebola caramelizada lentamente e
-              queijo provolone.
-            </p>
-            <div className="preco">R$ 48,00</div>
-          </div>
-          <div className="sabor">
-            <div className="tag">Vegetariana</div>
-            <h3>Abóbora e alecrim</h3>
-            <p>
-              Abóbora assada, ricota temperada, alecrim e um fio de mel no
-              final.
-            </p>
-            <div className="preco">R$ 48,00</div>
-          </div>
+
+        <div className="menu__size-guide" aria-label="Tamanhos disponíveis">
+          <span>Pequena · 20 cm</span>
+          <span>Média · 25 cm</span>
+          <span>Grande · 30 cm</span>
+        </div>
+
+        <div className="menu__grid">
+          {pizzas.map((pizza) => (
+            <article className="pizza-card" key={pizza.name}>
+              <h3 className="pizza-card__title">{pizza.name}</h3>
+
+              <p className="pizza-card__description">{pizza.description}</p>
+
+              <dl className="pizza-card__prices">
+                {pizza.sizes.map((size) => (
+                  <div className="pizza-card__price" key={size.name}>
+                    <dt>
+                      {size.name}
+                      <small>{size.diameter} cm</small>
+                    </dt>
+
+                    <dd>{currencyFormatter.format(size.price)}</dd>
+                  </div>
+                ))}
+              </dl>
+            </article>
+          ))}
         </div>
       </div>
     </section>

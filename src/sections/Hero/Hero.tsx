@@ -1,4 +1,4 @@
-import pizzaPicture from "../../assets/pizza-picture.jpg"
+import pizzaPicture from "../../assets/pizza-picture.jpg";
 import "./Hero.css";
 
 function Hero() {
