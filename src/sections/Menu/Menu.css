@@ -2,7 +2,7 @@
   padding-block: var(--spacing-section);
 }
 
-.menu__head {
+.menu-head {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -11,7 +11,7 @@
   margin-bottom: 2rem;
 }
 
-.menu__eyebrow {
+.menu-eyebrow {
   margin-bottom: 0.75rem;
 
   color: var(--color-brick);
@@ -22,13 +22,13 @@
   text-transform: uppercase;
 }
 
-.menu__head h2 {
+.menu-head h2 {
   max-width: 14ch;
 
   font-size: clamp(2rem, 4vw, 2.5rem);
 }
 
-.menu__order-link {
+.menu-order-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -41,12 +41,12 @@
   white-space: nowrap;
 }
 
-.menu__order-link svg {
+.menu-order-link svg {
   width: 1.125rem;
   height: 1.125rem;
 }
 
-.menu__size-guide {
+.menu-size-guide {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 2rem;
@@ -61,7 +61,7 @@
   font-weight: 500;
 }
 
-.menu__grid {
+.menu-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
@@ -76,7 +76,7 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-.pizza-card__title {
+.pizza-card-title {
   margin-bottom: 0.75rem;
 
   font-family: var(--font-heading);
@@ -84,7 +84,7 @@
   line-height: 1.2;
 }
 
-.pizza-card__description {
+.pizza-card-description {
   min-height: 3.25rem;
   margin-bottom: 1.5rem;
 
@@ -94,12 +94,12 @@
   line-height: 1.6;
 }
 
-.pizza-card__prices {
+.pizza-card-prices {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.pizza-card__price {
+.pizza-card-price {
   padding-inline: 0.75rem;
 
   border-right: 1px solid var(--color-border);
@@ -107,16 +107,16 @@
   text-align: center;
 }
 
-.pizza-card__price:first-child {
+.pizza-card-price:first-child {
   padding-left: 0;
 }
 
-.pizza-card__price:last-child {
+.pizza-card-price:last-child {
   padding-right: 0;
   border-right: 0;
 }
 
-.pizza-card__price dt {
+.pizza-card-price dt {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
@@ -126,12 +126,12 @@
   font-size: 0.8125rem;
 }
 
-.pizza-card__price small {
+.pizza-card-price small {
   font-size: 0.75rem;
   font-weight: 400;
 }
 
-.pizza-card__price dd {
+.pizza-card-price dd {
   margin-top: 0.5rem;
 
   color: var(--color-brick);
@@ -142,33 +142,33 @@
 }
 
 @media (max-width: 760px) {
-  .menu__head {
+  .menu-head {
     align-items: flex-start;
     flex-direction: column;
   }
 
-  .menu__grid {
+  .menu-grid {
     grid-template-columns: 1fr;
   }
 
-  .pizza-card__description {
+  .pizza-card-description {
     min-height: auto;
   }
 }
 
 @media (max-width: 480px) {
-  .menu__size-guide {
+  .menu-size-guide {
     align-items: flex-start;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .pizza-card__prices {
+  .pizza-card-prices {
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
 
-  .pizza-card__price {
+  .pizza-card-price {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -180,16 +180,16 @@
     text-align: left;
   }
 
-  .pizza-card__price:last-child {
+  .pizza-card-price:last-child {
     padding-bottom: 0;
     border-bottom: 0;
   }
 
-  .pizza-card__price dt {
+  .pizza-card-price dt {
     align-items: flex-start;
   }
 
-  .pizza-card__price dd {
+  .pizza-card-price dd {
     margin-top: 0;
   }
 }

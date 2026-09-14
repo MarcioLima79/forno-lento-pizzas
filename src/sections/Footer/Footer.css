@@ -4,6 +4,11 @@
   padding: 64px 32px 40px;
 }
 
+.footer-content {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
 .footer-top {
   display: flex;
   justify-content: space-between;
