@@ -1,3 +1,4 @@
+import Button from "../../components/Button/Button";
 import pizzaPicture from "../../assets/pizza-picture.jpg";
 import "./Hero.css";
 
@@ -21,13 +22,13 @@ function Hero() {
           </p>
 
           <div className="hero__actions">
-            <a className="hero__primary-button" href="#pedir">
+            <Button as="a" href="#pedir">
               Fazer pedido
-            </a>
+            </Button>
 
-            <a className="hero__secondary-button" href="#cardapio">
+            <Button as="a" variant="secondary" href="#cardapio">
               Ver sabores
-            </a>
+            </Button>
           </div>
         </div>
 

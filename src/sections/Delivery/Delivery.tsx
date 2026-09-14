@@ -1,5 +1,6 @@
-import { MoveRight } from "lucide-react";
+import { IoArrowForward } from "react-icons/io5";
 
+import Button from "../../components/Button/Button";
 import DeliveryMap from "../../components/DeliveryMap/DeliveryMap";
 import "./Delivery.css";
 
@@ -23,10 +24,17 @@ function Delivery() {
 
           <p className="delivery__availability">Atendimento todos os dias.</p>
 
-          <a className="delivery__button" href="#pedir">
+          <Button
+            className="delivery__button"
+            icon={<IoArrowForward aria-hidden="true" />}
+            onClick={() =>
+              document
+                .getElementById("pedir")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
             Ver como pedir
-            <MoveRight aria-hidden="true" />
-          </a>
+          </Button>
         </div>
       </div>
     </section>
