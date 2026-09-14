@@ -1,4 +1,5 @@
 import Benefits from "./sections/Benefits/Benefits";
+import Delivery from "./sections/Delivery/Delivery";
 import Header from "./sections/Header/Header";
 import Hero from "./sections/Hero/Hero";
 import Menu from "./sections/Menu/Menu";
@@ -12,6 +13,7 @@ function App() {
       <Process />
       <Menu />
       <Benefits />
+      <Delivery />
     </main>
   );
 }
