@@ -1,4 +1,4 @@
-import { MoveRight } from "lucide-react";
+import { IoArrowForward } from "react-icons/io5";
 import { pizzas } from "../../data/pizzas";
 import "./Menu.css";
 
@@ -19,7 +19,7 @@ function Menu() {
 
           <a className="menu__order-link" href="#pedir">
             Ver como pedir
-            <MoveRight aria-hidden="true" />
+            <IoArrowForward aria-hidden="true" />
           </a>
         </div>
 
