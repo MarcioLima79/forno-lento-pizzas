@@ -1,52 +1,48 @@
 import Button from "@/components/atoms/Button/Button";
-import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa6";
-import { orderUrl } from "@/data/contact";
+import type { FooterProps } from "@/types/footer";
 import "./Footer.css";
 
-function Footer() {
+function Footer({
+  title,
+  action,
+  socialTitle,
+  socialLinks,
+  copyright,
+}: FooterProps) {
   return (
     <section className="footer" id="footer">
       <div className="footer-content">
         <div className="footer-top">
-          <h2 className="footer-order">Pronto para pedir?</h2>
+          <h2 className="footer-order">{title}</h2>
           <Button
             as="a"
             variant="inverted"
             className="footer-button"
-            href={orderUrl}
+            href={action.href}
             target="_blank"
             rel="noopener noreferrer"
-            icon={<FaWhatsapp aria-hidden="true" />}
+            icon={action.icon}
           >
-            Pedir pelo WhatsApp
+            {action.label}
           </Button>
         </div>
         <div className="footer-bottom">
           <div className="footer-social-links">
-            <h3 className="footer-title">Acompanhe nossas redes sociais</h3>
-            <a
-              className="footer-social-link"
-              href="https://www.instagram.com/fornolento.pelotas/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram aria-hidden="true" />
-              <span>Instagram</span>
-            </a>
-            <a
-              className="footer-social-link"
-              href="https://www.facebook.com/fornolento.pelotas"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebook aria-hidden="true" />
-              <span>Facebook</span>
-            </a>
+            <h3 className="footer-title">{socialTitle}</h3>
+            {socialLinks.map((link) => (
+              <a
+                className="footer-social-link"
+                href={link.href}
+                key={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.icon}
+                <span>{link.label}</span>
+              </a>
+            ))}
           </div>
-          <small className="footer-copyright">
-            © {new Date().getFullYear()} Forno &amp; Massa. Todos os direitos
-            reservados.
-          </small>
+          <small className="footer-copyright">{copyright}</small>
         </div>
       </div>
     </section>
