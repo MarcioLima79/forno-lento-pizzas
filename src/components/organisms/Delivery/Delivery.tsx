@@ -1,7 +1,8 @@
 import { IoArrowForward } from "react-icons/io5";
 
-import Button from "@/components/Button/Button";
-import DeliveryMap from "@/components/DeliveryMap/DeliveryMap";
+import Button from "@/components/atoms/Button/Button";
+import DeliveryMap from "@/components/atoms/DeliveryMap/DeliveryMap";
+import { orderUrl } from "@/data/contact";
 import "./Delivery.css";
 
 function Delivery() {
@@ -25,13 +26,12 @@ function Delivery() {
           <p className="delivery-availability">Atendimento todos os dias.</p>
 
           <Button
+            as="a"
             className="delivery-button"
+            href={orderUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             icon={<IoArrowForward aria-hidden="true" />}
-            onClick={() =>
-              document
-                .getElementById("pedir")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
           >
             Ver como pedir
           </Button>

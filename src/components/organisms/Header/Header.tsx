@@ -1,4 +1,5 @@
-import Button from "@/components/Button/Button";
+import Button from "@/components/atoms/Button/Button";
+import { orderUrl } from "@/data/contact";
 import "./Header.css";
 
 const navItems = [
@@ -29,7 +30,13 @@ function Header() {
           </ul>
         </nav>
 
-        <Button className="header-cta" href="#pedir">
+        <Button
+          as="a"
+          className="header-cta"
+          href={orderUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Pedir pelo WhatsApp
         </Button>
       </div>

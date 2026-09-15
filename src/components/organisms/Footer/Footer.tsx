@@ -1,5 +1,6 @@
-import Button from "@/components/Button/Button";
-import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa6";
+import Button from "@/components/atoms/Button/Button";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { orderUrl } from "@/data/contact";
 import "./Footer.css";
 
 function Footer() {
@@ -9,23 +10,15 @@ function Footer() {
         <div className="footer-top">
           <h2 className="footer-order">Pronto para pedir?</h2>
           <Button
+            as="a"
             variant="inverted"
             className="footer-button"
-            onClick={() =>
-              document
-                .getElementById("pedir")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+            href={orderUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            icon={<FaWhatsapp aria-hidden="true" />}
           >
-            Pedir pelo WhatsApp{" "}
-            <a
-              className="footer-social-link"
-              href="https://wa.me/5553981173827"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaWhatsapp aria-hidden="true" />
-            </a>
+            Pedir pelo WhatsApp
           </Button>
         </div>
         <div className="footer-bottom">

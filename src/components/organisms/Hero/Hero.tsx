@@ -1,5 +1,6 @@
-import Button from "@/components/Button/Button";
+import Button from "@/components/atoms/Button/Button";
 import pizzaPicture from "@/assets/pizza-picture.jpg";
+import { orderUrl } from "@/data/contact";
 import "./Hero.css";
 
 function Hero() {
@@ -22,7 +23,12 @@ function Hero() {
           </p>
 
           <div className="hero-actions">
-            <Button as="a" href="#pedir">
+            <Button
+              as="a"
+              href={orderUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Fazer pedido
             </Button>
 

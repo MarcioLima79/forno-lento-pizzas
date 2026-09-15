@@ -1,11 +1,8 @@
 import { IoArrowForward } from "react-icons/io5";
+import PizzaCard from "@/components/molecules/PizzaCard/PizzaCard";
+import { orderUrl } from "@/data/contact";
 import { pizzas } from "@/data/pizzas";
 import "./Menu.css";
-
-const currencyFormatter = new Intl.NumberFormat("pt-BR", {
-  style: "currency",
-  currency: "BRL",
-});
 
 function Menu() {
   return (
@@ -17,7 +14,12 @@ function Menu() {
             <h2>Sabores artesanais</h2>
           </div>
 
-          <a className="menu-order-link" href="#pedir">
+          <a
+            className="menu-order-link"
+            href={orderUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Ver como pedir
             <IoArrowForward aria-hidden="true" />
           </a>
@@ -31,24 +33,7 @@ function Menu() {
 
         <div className="menu-grid">
           {pizzas.map((pizza) => (
-            <article className="pizza-card" key={pizza.name}>
-              <h3 className="pizza-card-title">{pizza.name}</h3>
-
-              <p className="pizza-card-description">{pizza.description}</p>
-
-              <dl className="pizza-card-prices">
-                {pizza.sizes.map((size) => (
-                  <div className="pizza-card-price" key={size.name}>
-                    <dt>
-                      {size.name}
-                      <small>{size.diameter} cm</small>
-                    </dt>
-
-                    <dd>{currencyFormatter.format(size.price)}</dd>
-                  </div>
-                ))}
-              </dl>
-            </article>
+            <PizzaCard key={pizza.name} pizza={pizza} />
           ))}
         </div>
       </div>

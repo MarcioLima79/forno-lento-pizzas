@@ -1,23 +1,7 @@
-import Benefits from "@/sections/Benefits/Benefits";
-import Delivery from "@/sections/Delivery/Delivery";
-import Footer from "@/sections/Footer/Footer";
-import Header from "@/sections/Header/Header";
-import Hero from "@/sections/Hero/Hero";
-import Menu from "@/sections/Menu/Menu";
-import Process from "@/sections/Process/Process";
+import LandingPageTemplate from "@/components/templates/LandingPageTemplate/LandingPageTemplate";
 
 function App() {
-  return (
-    <main>
-      <Header />
-      <Hero />
-      <Process />
-      <Menu />
-      <Benefits />
-      <Delivery />
-      <Footer />
-    </main>
-  );
+  return <LandingPageTemplate />;
 }
 
 export default App;
