@@ -53,8 +53,6 @@
   margin-bottom: 2rem;
   padding-block: 1rem;
 
-  border-block: 1px solid var(--color-border);
-
   color: var(--color-text-secondary);
   font-size: 0.875rem;
   font-weight: 500;
@@ -62,82 +60,9 @@
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  border-top: 1px solid var(--color-border);
-  border-left: 1px solid var(--color-border);
-}
-
-.pizza-card {
-  padding: clamp(1.5rem, 4vw, 2rem);
-
-  border-right: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.pizza-card-title {
-  margin-bottom: 0.75rem;
-
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  line-height: 1.2;
-}
-
-.pizza-card-description {
-  min-height: 3.25rem;
-  margin-bottom: 1.5rem;
-
-  color: var(--color-text-secondary);
-
-  font-size: 0.9375rem;
-  line-height: 1.6;
-}
-
-.pizza-card-prices {
-  display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
 
-.pizza-card-price {
-  padding-inline: 0.75rem;
-
-  border-right: 1px solid var(--color-border);
-
-  text-align: center;
-}
-
-.pizza-card-price:first-child {
-  padding-left: 0;
-}
-
-.pizza-card-price:last-child {
-  padding-right: 0;
-  border-right: 0;
-}
-
-.pizza-card-price dt {
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-
-  color: var(--color-text-secondary);
-
-  font-size: 0.8125rem;
-}
-
-.pizza-card-price small {
-  font-size: 0.75rem;
-  font-weight: 400;
-}
-
-.pizza-card-price dd {
-  margin-top: 0.5rem;
-
-  color: var(--color-brick);
-
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 600;
+  gap: 24px;
 }
 
 @media (max-width: 760px) {
@@ -149,9 +74,11 @@
   .menu-grid {
     grid-template-columns: 1fr;
   }
+}
 
-  .pizza-card-description {
-    min-height: auto;
+@media (min-width: 761px) and (max-width: 960px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -160,35 +87,5 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  .pizza-card-prices {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-
-  .pizza-card-price {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 0 0.75rem;
-    border-right: 0;
-    border-bottom: 1px solid var(--color-border);
-
-    text-align: left;
-  }
-
-  .pizza-card-price:last-child {
-    padding-bottom: 0;
-    border-bottom: 0;
-  }
-
-  .pizza-card-price dt {
-    align-items: flex-start;
-  }
-
-  .pizza-card-price dd {
-    margin-top: 0;
   }
 }

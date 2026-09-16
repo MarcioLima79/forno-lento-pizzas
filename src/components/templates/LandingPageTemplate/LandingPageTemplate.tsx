@@ -10,6 +10,10 @@ import { orderUrl } from "@/data/contact";
 import type { Benefit } from "@/types/benefit";
 import type { ProcessStepData } from "@/types/process";
 
+type LandingPageTemplateProps = {
+  onOpenMenu?: () => void;
+};
+
 const benefits: Benefit[] = [
   {
     title: "Ingredientes locais",
@@ -73,17 +77,17 @@ const processSteps: ProcessStepData[] = [
   },
 ];
 
-function LandingPageTemplate() {
+function LandingPageTemplate({ onOpenMenu }: LandingPageTemplateProps) {
   return (
     <main>
-      <Header />
+      <Header onMenuClick={onOpenMenu} />
       <Hero />
       <Process
         title="Da nossa cozinha para seu forno"
         description="Um processo simples, pensado pra manter o sabor de recém-feita mesmo depois de congelada."
         steps={processSteps}
       />
-      <Menu />
+      <Menu onOpenMenu={onOpenMenu} />
       <Benefits
         title="Por que congelada não é sinônimo de industrializada"
         items={benefits}

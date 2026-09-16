@@ -1,0 +1,168 @@
+.pizza-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0 1.25rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: rgb(255 251 243 / 82%);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.pizza-card:has(.pizza-card-button-selected) {
+  border-color: var(--color-olive);
+  box-shadow: 0 0 0 1px var(--color-olive);
+}
+
+.pizza-card-picture {
+  display: block;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 1.55 / 1;
+  margin: 0 -1.25rem 1.25rem;
+  width: calc(100% + 2.5rem);
+  object-fit: cover;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.pizza-card-title {
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.pizza-card-description {
+  min-height: 4.5rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.pizza-card-size-label {
+  margin-bottom: 0.75rem;
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.pizza-card-sizes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.pizza-card-size {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding-inline: 0.5rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  text-align: center;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+.pizza-card-size:hover {
+  border-color: var(--color-brick);
+  color: var(--color-brick);
+}
+
+.pizza-card-size-selected {
+  border-color: var(--color-brick);
+  background: var(--color-flour);
+  color: var(--color-brick);
+  font-weight: 600;
+}
+
+.pizza-card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.pizza-card-price-display {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.pizza-card-price-display span {
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+}
+
+.pizza-card-price-display strong {
+  color: var(--color-brick);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.pizza-card-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 8.5rem;
+  min-width: 8.5rem;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  padding: 0.7rem 2rem 0.7rem 1rem;
+  background: var(--color-brick);
+  color: var(--color-flour);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 200ms ease;
+}
+
+.pizza-card-button .button-icon {
+  position: absolute;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pizza-card-button .button-icon svg {
+  position: static;
+  width: 1rem;
+  height: 1rem;
+}
+
+.pizza-card-button:hover {
+  background: var(--color-brick-dark);
+}
+
+.pizza-card-button.pizza-card-button-selected {
+  border-color: var(--color-olive);
+  background: var(--color-olive);
+}
+
+@media (max-width: 480px) {
+  .pizza-card-description {
+    min-height: auto;
+  }
+
+  .pizza-card-action {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pizza-card-button {
+    width: 100%;
+  }
+}
