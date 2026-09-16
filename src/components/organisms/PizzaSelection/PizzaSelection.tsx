@@ -62,7 +62,7 @@ function PizzaSelection({ onBack }: PizzaSelectionProps) {
 
         {selectedPizza ? (
           <div className="pizza-selection-summary" role="status">
-            <div>
+            <div className="pizza-selection-summary-content">
               <p className="pizza-selection-summary-label">
                 <IoCheckmark aria-hidden="true" />
                 Sua escolha

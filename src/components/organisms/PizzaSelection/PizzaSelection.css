@@ -64,11 +64,19 @@
   background: rgb(231 226 199 / 65%);
 }
 
+.pizza-selection-summary-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-right: 2.5rem;
+}
+
 .pizza-selection-summary-label {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  margin-bottom: 0.5rem;
+
   color: var(--color-olive);
   font-size: 0.8125rem;
   font-weight: 600;
@@ -84,13 +92,11 @@
 }
 
 .pizza-selection-summary p:not(.pizza-selection-summary-label) {
-  margin-top: 0.25rem;
   font-size: 0.9375rem;
 }
 
 .pizza-selection-summary small {
   display: block;
-  margin-top: 0.75rem;
   color: var(--color-text-secondary);
 }
 
