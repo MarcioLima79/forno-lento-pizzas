@@ -4,7 +4,11 @@ import { orderUrl } from "@/data/contact";
 import { pizzas } from "@/data/pizzas";
 import "./Menu.css";
 
-function Menu() {
+type MenuProps = {
+  onOpenMenu?: () => void;
+};
+
+function Menu({ onOpenMenu }: MenuProps) {
   return (
     <section className="menu" id="cardapio">
       <div className="container">
@@ -19,12 +23,21 @@ function Menu() {
             href={orderUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={
+              onOpenMenu
+                ? (event) => {
+                    event.preventDefault();
+                    onOpenMenu();
+                  }
+                : undefined
+            }
           >
-            Ver como pedir
+            Ver cardápio completo
             <IoArrowForward aria-hidden="true" />
           </a>
         </div>
 
+        <p>Pizzas disponíveis nos seguintes tamanhos</p>
         <div className="menu-size-guide" aria-label="Tamanhos disponíveis">
           <span>Pequena · 20 cm</span>
           <span>Média · 25 cm</span>
@@ -32,8 +45,8 @@ function Menu() {
         </div>
 
         <div className="menu-grid">
-          {pizzas.map((pizza) => (
-            <PizzaCard key={pizza.name} pizza={pizza} />
+          {pizzas.slice(0, 3).map((pizza) => (
+            <PizzaCard key={pizza.name} pizza={pizza} selectable={false} />
           ))}
         </div>
       </div>

@@ -36,7 +36,6 @@
 
 .button-primary:hover {
   background-color: var(--color-brick);
-  transform: translateY(-1px);
 }
 
 .button-secondary {
@@ -48,7 +47,6 @@
 .button-secondary:hover {
   border-color: var(--color-brick);
   color: var(--color-brick);
-  transform: translateY(-1px);
 }
 
 .button-inverted {
@@ -59,7 +57,6 @@
 
 .button-inverted:hover {
   background-color: var(--color-brick-dark);
-  transform: translateY(-1px);
 }
 
 .button-icon {
