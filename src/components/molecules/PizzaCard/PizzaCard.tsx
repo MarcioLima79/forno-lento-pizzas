@@ -12,6 +12,7 @@ const currencyFormatter = new Intl.NumberFormat("pt-BR", {
 type PizzaCardProps = {
   pizza: Pizza;
   onSelect?: (pizza: Pizza, sizeName: string) => void;
+  onSizeChange?: (pizza: Pizza) => void;
   isSelected?: boolean;
   selectable?: boolean;
 };
@@ -19,6 +20,7 @@ type PizzaCardProps = {
 function PizzaCard({
   pizza,
   onSelect,
+  onSizeChange,
   isSelected = false,
   selectable = true,
 }: PizzaCardProps) {
@@ -26,6 +28,12 @@ function PizzaCard({
   const selectedSize = pizza.sizes.find(
     (size) => size.name === selectedSizeName,
   );
+  const handleSizeChange = (sizeName: string) => {
+    if (sizeName !== selectedSizeName) {
+      setSelectedSizeName(sizeName as typeof selectedSizeName);
+      onSizeChange?.(pizza);
+    }
+  };
 
   return (
     <article className="pizza-card">
@@ -57,11 +65,11 @@ function PizzaCard({
                 role="radio"
                 aria-checked={selectedSizeName === size.name}
                 tabIndex={0}
-                onClick={() => setSelectedSizeName(size.name)}
+                onClick={() => handleSizeChange(size.name)}
                 onKeyDown={(event) => {
                   if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
-                    setSelectedSizeName(size.name);
+                    handleSizeChange(size.name);
                   }
                 }}
               >

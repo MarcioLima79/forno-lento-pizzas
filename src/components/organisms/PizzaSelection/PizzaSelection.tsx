@@ -20,17 +20,32 @@ type SelectedPizza = {
 };
 
 function PizzaSelection({ onBack }: PizzaSelectionProps) {
-  const [selectedPizza, setSelectedPizza] = useState<SelectedPizza | null>(
-    null,
-  );
+  const [selectedPizzas, setSelectedPizzas] = useState<SelectedPizza[]>([]);
 
   const handleSelect = (pizza: Pizza, sizeName: string) => {
     const size = pizza.sizes.find((item) => item.name === sizeName);
 
     if (size) {
-      setSelectedPizza({ pizza, size });
+      setSelectedPizzas((currentPizzas) => [...currentPizzas, { pizza, size }]);
     }
   };
+
+  const handleSizeChange = (pizza: Pizza) => {
+    setSelectedPizzas((currentPizzas) =>
+      currentPizzas.filter((item) => item.pizza.name !== pizza.name),
+    );
+  };
+
+  const handleRemove = (pizzaIndex: number) => {
+    setSelectedPizzas((currentPizzas) =>
+      currentPizzas.filter((_, index) => index !== pizzaIndex),
+    );
+  };
+
+  const total = selectedPizzas.reduce(
+    (sum, selectedPizza) => sum + selectedPizza.size.price,
+    0,
+  );
 
   return (
     <section className="pizza-selection">
@@ -54,36 +69,57 @@ function PizzaSelection({ onBack }: PizzaSelectionProps) {
             <PizzaCard
               key={pizza.name}
               pizza={pizza}
-              isSelected={selectedPizza?.pizza.name === pizza.name}
+              isSelected={selectedPizzas.some(
+                (item) => item.pizza.name === pizza.name,
+              )}
               onSelect={handleSelect}
+              onSizeChange={handleSizeChange}
             />
           ))}
         </div>
 
-        {selectedPizza ? (
+        {selectedPizzas.length > 0 ? (
           <div className="pizza-selection-summary" role="status">
             <div className="pizza-selection-summary-content">
               <p className="pizza-selection-summary-label">
                 <IoCheckmark aria-hidden="true" />
-                Sua escolha
+                Seu pedido
               </p>
-              <h2>{selectedPizza.pizza.name}</h2>
-              <p>
-                Tamanho {selectedPizza.size.name.toLowerCase()} · A partir de{" "}
-                {currencyFormatter.format(selectedPizza.size.price)}
-              </p>
+
+              <div className="pizza-selection-summary-items">
+                {selectedPizzas.map((selectedPizza, index) => (
+                  <div
+                    className="pizza-selection-summary-item"
+                    key={`${selectedPizza.pizza.name}-${index}`}
+                  >
+                    <div>
+                      <h2>{selectedPizza.pizza.name}</h2>
+                      <p>
+                        Tamanho {selectedPizza.size.name.toLowerCase()} ·{" "}
+                        {currencyFormatter.format(selectedPizza.size.price)}
+                      </p>
+                    </div>
+                    <button
+                      className="pizza-selection-summary-close"
+                      type="button"
+                      aria-label={`Remover ${selectedPizza.pizza.name}`}
+                      onClick={() => handleRemove(index)}
+                    >
+                      <IoClose aria-hidden="true" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pizza-selection-summary-total">
+                <span>Total</span>
+                <strong>{currencyFormatter.format(total)}</strong>
+              </div>
               <small>
-                Confirme o valor do tamanho e a disponibilidade no pedido.
+                Troque o tamanho no card e selecione novamente para atualizar o
+                valor.
               </small>
             </div>
-            <button
-              className="pizza-selection-summary-close"
-              type="button"
-              aria-label="Remover pizza selecionada"
-              onClick={() => setSelectedPizza(null)}
-            >
-              <IoClose aria-hidden="true" />
-            </button>
           </div>
         ) : null}
         <p className="pizza-selection-disclaimer">
