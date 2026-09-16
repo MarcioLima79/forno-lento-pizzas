@@ -62,7 +62,7 @@ function Header({ onMenuClick }: HeaderProps) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Pedir pelo WhatsApp
+          Peça já a sua
         </Button>
 
         <a
