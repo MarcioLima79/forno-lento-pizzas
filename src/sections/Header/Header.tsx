@@ -9,18 +9,18 @@ const navItems = [
 function Header() {
   return (
     <header className="header">
-      <div className="container header__inner">
-        <a className="header__brand" href="#inicio">
+      <div className="container header-inner">
+        <a className="header-brand" href="#inicio">
           Forno
-          <span className="header__brand-highlight">&amp;</span>
+          <span className="header-brand-highlight">&amp;</span>
           Massa
         </a>
 
-        <nav className="header__nav" aria-label="Menu principal">
-          <ul className="header__menu">
+        <nav className="header-nav" aria-label="Menu principal">
+          <ul className="header-menu">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a className="header__link" href={item.href}>
+                <a className="header-link" href={item.href}>
                   {item.label}
                 </a>
               </li>
@@ -28,7 +28,7 @@ function Header() {
           </ul>
         </nav>
 
-        <a className="header__cta" href="#pedir">
+        <a className="header-cta" href="#pedir">
           Pedir pelo WhatsApp
         </a>
       </div>

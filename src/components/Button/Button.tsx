@@ -33,14 +33,14 @@ function Button({
   as,
   ...rest
 }: ButtonProps) {
-  const classNames = ["button", `button--${variant}`, className]
+  const classNames = ["button", `button-${variant}`, className]
     .filter(Boolean)
     .join(" ");
 
   const content = (
     <>
       {children}
-      {icon ? <span className="button__icon">{icon}</span> : null}
+      {icon ? <span className="button-icon">{icon}</span> : null}
     </>
   );
 
